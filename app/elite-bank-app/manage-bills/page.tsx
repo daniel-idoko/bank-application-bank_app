@@ -1,8 +1,8 @@
 "use client"
 import { Grid } from "@mui/material";
-import Appbar from '@/app/components/Appbar/Appbar';
-import Sidebar from "@/app/components/Sidebar/Sidebar";
-import LoadingScreen from "@/app/components/LoadingScreen/LoadingScreen";
+import Appbar from '../../components/Appbar/Appbar';
+import Sidebar from "../../components/Sidebar/Sidebar";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import { useGetData } from '../../context/GetDataContext';
 
 interface Props {};

@@ -3,6 +3,8 @@ import { Grid } from "@mui/material";
 import Appbar from "@/app/components/Appbar/Appbar";
 import SettingNavigation from "@/app/components/Settings/SettingNavigation";
 import Sidebar from "@/app/components/Sidebar/Sidebar";
+import { useGetData } from '../../../context/GetDataContext';
+import LoadingScreen from "../../../components/LoadingScreen/LoadingScreen";
 
 
 
@@ -13,10 +15,17 @@ const handleAccodionClick =(id: string, id2: string)=>{
 
 interface Props {};
 const SettingHelp: React.FC<Props>=({  })=>{
+    const { pageLoading } = useGetData();
  
     
     return (
-        <>
+    <>
+        {
+            pageLoading
+            ?
+                <LoadingScreen/>
+            :
+            <>
             <Sidebar namefromApp="settings" />
             <main id="content">
                 <Appbar />
@@ -65,6 +74,8 @@ const SettingHelp: React.FC<Props>=({  })=>{
                 </section>
             </main>
         </>
+        }
+    </>
     )
 };
 

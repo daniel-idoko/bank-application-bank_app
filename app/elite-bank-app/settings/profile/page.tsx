@@ -6,10 +6,14 @@ import ProfileAccodion1 from "@/app/components/Settings/ProfileAccodion1";
 import ProfileAccodion2 from "@/app/components/Settings/ProfileAccodion2";
 import ProfileAccodion3 from "@/app/components/Settings/ProfileAccodion3";
 import Sidebar from "@/app/components/Sidebar/Sidebar";
+import { useGetData } from '../../../context/GetDataContext';
+import LoadingScreen from "../../../components/LoadingScreen/LoadingScreen";
 
 
 interface Props {};
 const SettingsProfile: React.FC<Props>=({})=>{
+    const { pageLoading } = useGetData();
+    
 
     // USE VANILLA JAVASCRIPT TO ACHIVE THIS, BECUSE CHANGING STATE VALUE AFFECTS ACCOUDION
     const handleAccodionClick =(id: string, id2: string)=>{
@@ -46,7 +50,13 @@ const SettingsProfile: React.FC<Props>=({})=>{
  
     
     return (
-        <>
+    <>
+        {
+            pageLoading
+            ?
+                <LoadingScreen/>
+            :
+            <>
             <Sidebar namefromApp="settings" />
             <main id="content">
                 <Appbar />
@@ -77,7 +87,9 @@ const SettingsProfile: React.FC<Props>=({})=>{
                 </section>
 
             </main>
-        </>
+         </>
+        }
+    </>
     )
 };
 

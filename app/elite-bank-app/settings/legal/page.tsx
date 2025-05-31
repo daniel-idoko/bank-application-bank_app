@@ -4,14 +4,23 @@ import Appbar from "@/app/components/Appbar/Appbar";
 import SettingNavigation from "@/app/components/Settings/SettingNavigation";
 import Sidebar from "@/app/components/Sidebar/Sidebar";
 import { LuExternalLink } from "react-icons/lu";
+import { useGetData } from '../../../context/GetDataContext';
+import LoadingScreen from "../../../components/LoadingScreen/LoadingScreen";
 
 
 interface Props {};
 const SettingLegal: React.FC<Props>=({  })=>{
+    const { pageLoading } = useGetData();
  
     
     return (
-        <>
+    <>
+        {
+            pageLoading
+            ?
+                <LoadingScreen/>
+            :
+            <>
             <Sidebar namefromApp="settings" />
             <main id="content">
                 <Appbar />
@@ -53,7 +62,9 @@ const SettingLegal: React.FC<Props>=({  })=>{
                     </div>
                 </section>
             </main>
-        </>
+         </>
+        }
+    </>
     )
 };
 

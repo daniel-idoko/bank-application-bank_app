@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Scrollbars } from 'react-custom-scrollbars';
-import { NavigationInner, NavigationInner2, useStyles} from "./style";
+import { useStyles, NavigationInner, NavigationInner2} from "./style";
 import ReceiveFundsPopup from "../ReceiveFunds/ReceiveFunds";
 import axios from "axios";
+import "../../css/sidebar.css";
 
 
 interface Props {
